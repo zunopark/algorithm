@@ -1,18 +1,26 @@
-x = int(input())
+n = int(input())
 
 count = 0
-check = 1
 
-while check != x:
-    if check*3 <= x:
-        check = check * 3
+def solution(num):
+    if num == 1:
+        return num
+    global count
+    if num % 3 == 0:
         count += 1
-    elif check * 2 <= x:
-        check = check * 2
+        return solution(num//3)
+    elif num % 2 == 0:
         count += 1
-    elif check + 1 <= x:
-        check = check + 1
+        return solution(num//2)
+    else:
         count += 1
+        return solution(num-1)
 
+solution(n)
 print(count)
+
+
+        
+
+
     
