@@ -1,26 +1,16 @@
 n = int(input())
 
 count = 0
+li = [0]*(n+1)
 
 def solution(num):
-    if num == 1:
-        return num
-    global count
-    if num % 3 == 0:
-        count += 1
-        return solution(num//3)
-    elif num % 2 == 0:
-        count += 1
-        return solution(num//2)
-    else:
-        count += 1
-        return solution(num-1)
-
-solution(n)
-print(count)
-
-
-        
-
-
+    for i in range(2, num+1):
+        li[i] = li[i-1] + 1
+        if i%2==0:
+            li[i] = min(li[i], li[i//2]+1)
+        if i%3==0:
+            li[i] = min(li[i], li[i//3]+1)
     
+    return li[num]
+
+print(solution(n))
