@@ -1,11 +1,13 @@
 a,b,v = map(int, input().split())
 
-n = (v-1) // (a-b)
-print(n)
+day = 0
 
-# while True:
-#     day += 1
-#     res += a
-#     if res >= v:
-#         break
-#     res -= b
+while True:
+    day += 1
+    v -= a
+    if v == 0:
+        break
+    v += b
+
+print(day)
+
